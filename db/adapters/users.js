@@ -12,8 +12,20 @@ const createUsers = async (user) => {
       `,
     [name, location, cardNumber]
   );
-  console.log(createdUser);
   return createdUser;
 };
 
-module.exports = { createUsers };
+const getUsers = async () => {
+  const { rows } = await client.query(`
+        SELECT * FROM users
+    `);
+  return rows;
+};
+
+const booksCheckedOut = async () => {
+  const {} = await client.query(`
+  
+  `);
+};
+
+module.exports = { createUsers, getUsers };

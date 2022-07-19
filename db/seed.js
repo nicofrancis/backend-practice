@@ -1,7 +1,9 @@
 // -------This file will Reset your Database--------- //
 
 const client = require("./client");
-const { createUsers } = require("./adapters/users");
+const { createUsers, getUsers } = require("./adapters/users");
+const { createBooks, getBooks } = require("./adapters/books");
+const { createAuthors, getAuthors } = require("./adapters/authors");
 const { users, books, authors } = require("./seedData");
 
 // Drop Tables
@@ -59,6 +61,16 @@ const seedData = async () => {
   console.log(`...seeding users`);
   for (let user of users) {
     await createUsers(user);
+  }
+
+  console.log(`...seeding authors`);
+  for (let author of authors) {
+    await createAuthors(author);
+  }
+
+  console.log(`...seeding books`);
+  for (let book of books) {
+    await createBooks(book);
   }
 };
 // Call all of the functions together and 'BUILD' you db
