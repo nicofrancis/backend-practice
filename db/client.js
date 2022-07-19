@@ -1,6 +1,6 @@
 const { Client } = require("pg");
 
-const dbName = "enter your db name here";
+const dbName = "booksOnDemand";
 
 const client = new Client(`postgres://localhost:5432/${dbName}`);
 
